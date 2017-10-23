@@ -112,7 +112,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //নিচের লাইনে মানে হলো আমারা যখন গুগল ম্যাপ ওপেন করবো তখন আমারা যেখানে আছি সেই জায়গা মবাইলে দেখাবে
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 //নিচের লাইনে মানে হলো আমারা যখন গুগল ম্যাপ ওপেন করবো তখন  আমাদের প্লেস টা জুম করে দেখাবে
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngObj, 10.2f));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngObj,10.2f));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
