@@ -58,19 +58,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //get the longitude
                     double longitude = location.getLongitude();
 //Instantiant the LatLng , Class
+                    //This value is my possition
                     LatLng latLngObj = new LatLng(latitude, longitude);
+
+          //This value is Karwan Bazar
+                    latitude = 23.7516;
+                    longitude = 90.3943;
+                    LatLng latLngObj1 = new LatLng(latitude,longitude);
 
 //Instantiant the Geocoder , Class
                     Geocoder geocoder = new Geocoder(getApplicationContext());
                     try {
-                        List<Address> addressList = geocoder.getFromLocation(latitude, longitude, 1);
-                        String str = addressList.get(0).getLocality() + ", ";
-                        str += addressList.get(0).getCountryName();
+                        List<Address> addressList = geocoder.getFromLocation(latitude, longitude, 2);
+                        String str = addressList.get(0).getSubLocality() + ", ";
+                        str += addressList.get(0).getLocality();
+
                         mMap.addMarker(new MarkerOptions().position(latLngObj).title(str));
+
+                        mMap.addMarker(new MarkerOptions().position(latLngObj1).title(str));
 //নিচের লাইনে মানে হলো আমারা যখন গুগল ম্যাপ ওপেন করবো তখন আমারা যেখানে আছি সেই জায়গা মবাইলে দেখাবে
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 //নিচের লাইনে মানে হলো আমারা যখন গুগল ম্যাপ ওপেন করবো তখন  আমাদের প্লেস টা জুম করে দেখাবে
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngObj, 10.2f));
+//                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngObj, 10.2f));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngObj, 14f));
+//                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngObj, 18f));
+
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -105,14 +118,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //Instantiant the Geocoder , Class
                     Geocoder geocoder = new Geocoder(getApplicationContext());
                     try {
-                        List<Address> addressList = geocoder.getFromLocation(latitude, longitude, 1);
+                        List<Address> addressList = geocoder.getFromLocation(latitude, longitude,1);
                         String str = addressList.get(0).getLocality() + ", ";
                         str += addressList.get(0).getCountryName();
                         mMap.addMarker(new MarkerOptions().position(latLngObj).title(str));
 //নিচের লাইনে মানে হলো আমারা যখন গুগল ম্যাপ ওপেন করবো তখন আমারা যেখানে আছি সেই জায়গা মবাইলে দেখাবে
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 //নিচের লাইনে মানে হলো আমারা যখন গুগল ম্যাপ ওপেন করবো তখন  আমাদের প্লেস টা জুম করে দেখাবে
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngObj,10.2f));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngObj,14f));
+//                        mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(latLngObj , 14.0f) );
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
